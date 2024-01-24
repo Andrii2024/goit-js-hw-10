@@ -76,6 +76,10 @@ function convertMs(ms) {
   const minutes = Math.floor(((ms % day) % hour) / minute);
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
+  if (isNaN(days) || isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
   return { days, hours, minutes, seconds };
 }
 
